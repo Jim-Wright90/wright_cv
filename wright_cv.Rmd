@@ -1,0 +1,112 @@
+---
+title: 'Jim Wright CV'
+date: "Updated `r Sys.Date()`"
+output:
+  pagedown::html_paged:
+    self_contained: false
+    css: [anderson-cv.css]
+    number_sections: false
+links-to-footnotes: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(knitr)
+opts_chunk$set(echo = FALSE)
+options(knitr.kable.NA = '')
+
+#### cv entries #####
+cv_entries <- readxl::read_xlsx(here::here("data", "cv_entries.xlsx"))
+
+#### publications #####
+pubs <- readxl::read_xlsx(here::here("data", "pubs.xlsx")) %>% 
+  arrange(order) %>% 
+  select(-order)
+
+pubs <- map_df(pubs, ~gsub("\\.$", "", .x))
+
+```
+
+
+```{r}
+PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
+if(PDF) {
+  header <- '
+  View online
+  <a href="https://datalorax.github.io/anderson-cv/" class="icon-block">
+      <i class="fas fafooter fa-globe"></i>
+  </a>
+  '
+} else {
+  header <- '
+  Download PDF
+  <a href="https://github.com/datalorax/anderson-cv/raw/master/anderson-cv.pdf" class="icon-block">
+      <i class="fas fafooter fa-download"></i>
+  </a>
+  '
+}
+```
+
+<div class = "download">
+```{r results = "asis"}
+cat(header)
+```
+
+</div>
+
+<div class = "footer",>
+  <a href="https://github.com/Jim-Wright90" class="icon-block">
+      <i class="fab fafooter fa-github"> | </i>
+  </a>
+  
+  <a href="mailto:jwrigh16@uoregon.edu" class="icon-block">
+      <i class="fas fafooter fa-envelope"> | </i>
+  </a>
+  
+  
+</div>
+
+
+<div id = "block_container">
+
+<div class = "first", id="bloc1">Jim</div>  
+<div class = "last", id="bloc2">Wright</div>
+
+</div>
+
+<div id = "position", class = "position">
+Clinical Supervisor 
+</div>
+
+
+<div id = "sub", class = "sub">
+Curriculum Vita
+</div>
+
+
+<div class="grid-container">
+
+```{r summary, child = here::here("content", "summary.Rmd")}
+```
+
+```{r contact-info, child = here::here("content", "contact-info.Rmd")}
+```
+
+</div>
+
+## Education {.education .nohead}
+```{r}
+cv_entries %>% 
+  filter(type == 'education') %>% 
+  mutate(what = paste0(what, ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what),
+         what = ifelse(!is.na(url), 
+                       paste0("[", what, "](", url, ")"), 
+                       what)
+         ) %>% 
+  mutate(year = str_c(year_begin, " --- ", year_end)) %>% 
+  select(year, what) %>% 
+  kable()
+```
