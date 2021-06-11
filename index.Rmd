@@ -469,3 +469,20 @@ kable(conf_tbl[1:7, ])
 # kable(conf_tbl[29:nrow(conf_tbl), ])
 ```
 
+# Honors and Awards {.submitted .nohead}
+
+<div class="hangingindent">
+
+```{r}
+cv_entries %>%
+  filter(type == "award") %>%
+  mutate(count = paste0(seq(nrow(.), 1), "."),
+         cite = paste0(what, ". (", year_end, "). ", 
+                       ifelse(!is.na(additional_info), 
+                              paste0(additional_info, "."),
+                              "")
+                       )
+        ) %>%
+  select(count, cite) %>%
+  kable()
+```
