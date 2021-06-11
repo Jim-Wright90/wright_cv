@@ -1,4 +1,6 @@
 ```{block type="col-1 grid-item", echo=TRUE}
 ## About Me {.box}
-I am primarily interested in multidisciplinary concussion management and the development of empirically driven return-to-learn guidelines for students recovering from concussion. 
+I am primarily interested in multidisciplinary concussion management and the development of empirically driven return-to-learn guidelines for students recovering from concussion.
+
+The style and format of this CV developed by [Daniel Anderson, Ph.D.](https://github.com/datalorax) 
 ```

@@ -76,7 +76,7 @@ cat(header)
 </div>
 
 <div id = "position", class = "position">
-Clinical Supervisor 
+Clinical Supervisor at the University of Oregon Department of Communication Disorders and Sciences
 </div>
 
 
@@ -131,7 +131,7 @@ cv_entries %>%
   mutate(year = str_c(year_begin, 
                       " --- ", 
                       ifelse(is.na(year_end), "", year_end))) %>% 
-  select(year, what) %>% 
+  select(year, what, additional_info) %>% 
   kable()
 ```
 
@@ -312,8 +312,8 @@ make_cite <- function(authors,	year,	title,	journal = NULL,	volume = NULL,
     version <- paste0("R package version ", version, ".")
   }
   authors <- gsub(
-    "Anderson, D\\.?",
-    "<span style= 'font-weight: 500'>Anderson, D.</span>", 
+    "Wright, J\\.?",
+    "<span style= 'font-weight: 500'>Wright, J.</span>", 
     authors)
    
   paste(authors, 
@@ -375,21 +375,14 @@ pubs_tbl <- pubs_tbl %>%
 kable(pubs_tbl[1:9, ])
 ```
 
-</div>
-
-<br class="pageBreak"/>
-
-<div class = "hangingindent prpa nohead">
 
 ```{r} 
-kable(pubs_tbl[10:nrow(pubs_tbl), ])
+# kable(pubs_tbl[10:nrow(pubs_tbl), ])
 ```
-
-</div>
 
 ## Professional Presentations 
 
-<div class = "hangingindent">
+<div class = "hangingindent prpa nohead">
 
 ```{r}
 confs <- pubs %>% 
@@ -447,31 +440,32 @@ conf_tbl <- conf_tbl %>%
   mutate(year = ifelse(count_within_year == 1, year, "")) %>% 
   select(-count_within_year)
 
+# kable(conf_tbl[1:7, ])
+```
+
+```{r}
 kable(conf_tbl[1:7, ])
 ```
 
-</div>
 
 
 ```{r}
-kable(conf_tbl[8:18, ])
+# kable(conf_tbl[8:18, ])
 ```
 
-</div>
 
 
 
 
 ```{r}
-kable(conf_tbl[19:28, ])
+# kable(conf_tbl[19:28, ])
 ```
 
-</div>
+
 
 
 
 ```{r}
-kable(conf_tbl[29:nrow(conf_tbl), ])
+# kable(conf_tbl[29:nrow(conf_tbl), ])
 ```
 
-</div>
