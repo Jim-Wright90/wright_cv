@@ -6,6 +6,7 @@
 |:------|-----:|
 | <span style="color: #454545"><i class="fas fa-envelope"></i></span> jwrigh16\@uoregon.edu |
 | <span style="color: #454545"><i class="fab fa-github"></i></span> [Jim-Wright90](https://github.com/Jim-Wright90) |
+| <span style="color: #454545"><i class="fab fa-orcid"></i></span> [Jim Wright](https://orcid.org/my-orcid?orcid=0000-0003-3035-7003) |
 
 </div>
 ```
