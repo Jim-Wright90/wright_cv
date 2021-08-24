@@ -30,27 +30,27 @@ pubs <- map_df(pubs, ~gsub("\\.$", "", .x))
 
 
 ```{r}
-PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
-if(PDF) {
-  header <- '
-  View online
-  <a href="https://jim-wright90.github.io/wright_cv/" class="icon-block">
-      <i class="fas fafooter fa-globe"></i>
-  </a>
-  '
-} else {
-  header <- '
-  Download PDF
-  <a href="https://jim-wright90.github.io/wright_cv/raw/master/index.pdf" class="icon-block">
-      <i class="fas fafooter fa-download"></i>
-  </a>
-  '
-}
+# PDF <- TRUE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
+# if(PDF) {
+#   header <- '
+#   View online
+#   <a href="https://jim-wright90.github.io/wright_cv/" class="icon-block">
+#       <i class="fas fafooter fa-globe"></i>
+#   </a>
+#   '
+# } else {
+#   header <- '
+#   Download PDF
+#   <a href="https://jim-wright90.github.io/wright_cv/raw/master/index.pdf" class="icon-block">
+#       <i class="fas fafooter fa-download"></i>
+#   </a>
+#   '
+# }
 ```
 
 <div class = "download">
 ```{r results = "asis"}
-cat(header)
+# cat(header)
 ```
 
 </div>
@@ -62,6 +62,14 @@ cat(header)
   
   <a href="mailto:jwrigh16@uoregon.edu" class="icon-block">
       <i class="fas fafooter fa-envelope"> | </i>
+  </a> 
+  
+  <a href="https://www.linkedin.com/in/jim-wright-a944698b/" class="icon-block">
+      <i class="fab fafooter fa-linkedin"></i>
+  </a>  
+  
+  <a href="https://orcid.org/my-orcid?orcid=0000-0003-3035-7003" class="icon-block">
+      <i class="fab fafooter fa-orcid"></i>
   </a>
   
   
@@ -134,6 +142,26 @@ cv_entries %>%
   select(year, what, additional_info) %>% 
   kable()
 ```
+
+## Graduate Student Research Experience 
+
+```{r}
+cv_entries %>% 
+  filter(type == 'student_research') %>% 
+  mutate(what = paste0("<span style= 'font-weight: 500'>",
+                       what, 
+                       "</span>"),
+    what = paste0(what, ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what)) %>% 
+  mutate(year = str_c(year_begin, 
+                      " --- ", 
+                      ifelse(is.na(year_end), "", year_end))) %>% 
+  select(year, what, additional_info) %>% 
+  kable(col.names = NULL)
+```
+
+I consulted with HCAMP to complete my capstone project in order to obtain the data science specialization from the University of Oregon. Our collaboration focused on retrospectively analyzing ImPACT test scores and PCSS severity ratings. My analysis has led to one manuscript currently in progress. Data products I produced for HCAMP are accessible [here](https://jim-wright90.shinyapps.io/HCAMP_shiny/?_ga=2.184615983.768699848.1629757508-733798040.1613499824) and [here](https://jim-wright90.github.io/hcamp_clusters/).
 
 ## Graduate Student Teaching Experience 
 
@@ -369,7 +397,7 @@ pubs_tbl <- pubs_tbl %>%
   select(-count_within_year)
 ```
 
-<div class = "hangingindent prpa nohead">
+<!-- <div class = "hangingindent prpa nohead"> -->
 
 ```{r} 
 kable(pubs_tbl[1:9, ])
@@ -382,7 +410,7 @@ kable(pubs_tbl[1:9, ])
 
 ## Professional Presentations 
 
-<div class = "hangingindent prpa nohead">
+<!-- <div class = "hangingindent prpa nohead"> -->
 
 ```{r}
 confs <- pubs %>% 
