@@ -4,6 +4,7 @@
 <div class = "info-box">
 | right | right |
 |:------|-----:|
+| <span style="color: #454545"><i class="fas fa-envelope"></i></span> jjwright90\@gmail.com |
 | <span style="color: #454545"><i class="fas fa-envelope"></i></span> jwrigh16\@uoregon.edu |
 | <span style="color: #454545"><i class="fab fa-github"></i></span> [Jim-Wright90](https://github.com/Jim-Wright90) |
 | <span style="color: #454545"><i class="fab fa-linkedin"></i></span> [Jim Wright](https://www.linkedin.com/in/jim-wright-a944698b/) |

@@ -61,6 +61,10 @@ cat(header)
       <i class="fab fafooter fa-github"> | </i>
   </a>
   
+   <a href="mailto:jjwright90@gmail.com" class="icon-block">
+      <i class="fas fafooter fa-envelope"> | </i>
+  </a>  
+  
   <a href="mailto:jwrigh16@uoregon.edu" class="icon-block">
       <i class="fas fafooter fa-envelope"> | </i>
   </a> 
