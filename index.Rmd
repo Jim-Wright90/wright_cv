@@ -7,6 +7,7 @@ output:
     css: [anderson-cv.css]
     number_sections: false
 links-to-footnotes: false
+# knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -30,27 +31,27 @@ pubs <- map_df(pubs, ~gsub("\\.$", "", .x))
 
 
 ```{r}
-# PDF <- TRUE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
-# if(PDF) {
-#   header <- '
-#   View online
-#   <a href="https://jim-wright90.github.io/wright_cv/" class="icon-block">
-#       <i class="fas fafooter fa-globe"></i>
-#   </a>
-#   '
-# } else {
-#   header <- '
-#   Download PDF
-#   <a href="https://jim-wright90.github.io/wright_cv/raw/master/index.pdf" class="icon-block">
-#       <i class="fas fafooter fa-download"></i>
-#   </a>
-#   '
-# }
+PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
+if(PDF) {
+  header <- '
+  View online
+  <a href="https://jim-wright90.github.io/wright_cv/" class="icon-block">
+      <i class="fas fafooter fa-globe"></i>
+  </a>
+  '
+} else {
+  header <- '
+  Download PDF
+  <a href="https://jim-wright90.github.io/wright_cv/raw/master/index.pdf" class="icon-block">
+      <i class="fas fafooter fa-download"></i>
+  </a>
+  '
+}
 ```
 
 <div class = "download">
 ```{r results = "asis"}
-# cat(header)
+cat(header)
 ```
 
 </div>
