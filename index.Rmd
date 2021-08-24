@@ -400,7 +400,8 @@ pubs_tbl <- pubs_tbl %>%
 <!-- <div class = "hangingindent prpa nohead"> -->
 
 ```{r} 
-kable(pubs_tbl[1:9, ])
+kable(pubs_tbl[1:9, ],
+      col.names = NULL)
 ```
 
 
@@ -472,7 +473,8 @@ conf_tbl <- conf_tbl %>%
 ```
 
 ```{r}
-kable(conf_tbl[1:7, ])
+kable(conf_tbl[1:7, ],
+      col.names = NULL)
 ```
 
 
