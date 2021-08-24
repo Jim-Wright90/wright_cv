@@ -42,7 +42,7 @@ if(PDF) {
 } else {
   header <- '
   Download PDF
-  <a href="https://jim-wright90.github.io/wright_cv/raw/master/index.pdf" class="icon-block">
+  <a href="https://github.com/jim-wright90/wright_cv/raw/master/index.pdf" class="icon-block">
       <i class="fas fafooter fa-download"></i>
   </a>
   '
