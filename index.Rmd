@@ -27,6 +27,8 @@ pubs <- readxl::read_xlsx(here::here("data", "pubs.xlsx")) %>%
 
 pubs <- map_df(pubs, ~gsub("\\.$", "", .x))
 
+courses <- readxl::read_xlsx(here::here("data", "courses.xlsx"))
+
 ```
 
 
@@ -62,6 +64,10 @@ cat(header)
   </a>
   
    <a href="mailto:jjwright90@gmail.com" class="icon-block">
+      <i class="fas fafooter fa-envelope"> | </i>
+  </a>  
+  
+   <a href="mailto:jim.wright@marzanoresearch.com" class="icon-block">
       <i class="fas fafooter fa-envelope"> | </i>
   </a>  
   
@@ -255,6 +261,43 @@ cv_entries %>%
                       " --- ", 
                       ifelse(is.na(year_end), "", year_end))) %>% 
   select(year, what) %>% 
+  kable(col.names = NULL)
+```
+
+# Teaching 
+
+<div class = "inote">
+Icons link to additional content  
+</div>
+
+## Courses Taught
+
+All courses taught at the University of Oregon Department of Communication Disorders & Sciences.
+
+```{r}
+courses %>% 
+  filter(type == "cds") %>% 
+  arrange(order) %>% 
+  mutate(fa_web = ifelse(!is.na(website),
+                         paste0(
+                           '[<i class="fas falink fa-globe"></i>](',
+                           website,
+                           ')'
+                         ),
+                         ""),
+         fa_git = ifelse(!is.na(repo),
+                         paste0(
+                           '[<i class="fab falink fa-github"></i>](',
+                           repo,
+                           ')'
+                         ),
+                         ""),
+         course = paste0("*", title, "*. (", quarter, ", ",  year, "). ", 
+                         ifelse(!is.na(crn), paste0("CRN: ", crn, "; "), ""), 
+                         credits, " credit hours.<sp></sp>",
+                         fa_git, "<sp></sp>", fa_web),
+         order = paste0(order, ".")) %>%
+  select(order, course) %>%
   kable(col.names = NULL)
 ```
 
