@@ -95,7 +95,7 @@ cat(header)
 </div>
 
 <div id = "position", class = "position">
-Clinical Supervisor at the University of Oregon Department of Communication Disorders and Sciences
+Research Associate at Marzano Research and Clinical Supervisor at the University of Oregon Department of Communication Disorders and Sciences
 </div>
 
 
