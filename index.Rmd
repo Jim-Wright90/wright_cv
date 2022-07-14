@@ -146,13 +146,15 @@ cv_entries %>%
                        "</span>"),
     what = paste0(what, ", ", where),
          what = gsub("NA", "", what),
-         what = gsub(", $", "", what)) %>% 
+         what = gsub(", $", "", what)) %>%
   mutate(year = str_c(year_begin, 
                       " --- ", 
                       ifelse(is.na(year_end), "", year_end))) %>% 
   select(year, what, additional_info) %>% 
   kable()
 ```
+
+A specific example of the work I complete for Marzano Research is the development of a data dashboard for Kamehameha Schools in the State of Hawaii. The dashboard is accessible [here](https://marzanoresearch.shinyapps.io/dashboard_version3/). 
 
 ## Graduate Student Research Experience 
 
@@ -172,7 +174,7 @@ cv_entries %>%
   kable(col.names = NULL)
 ```
 
-I consulted with HCAMP to complete my capstone project in order to obtain the data science specialization from the University of Oregon. Our collaboration focused on retrospectively analyzing ImPACT test scores and PCSS severity ratings. My analysis has led to one manuscript currently in progress. Data products I produced for HCAMP are accessible [here](https://jim-wright90.shinyapps.io/HCAMP_shiny/?_ga=2.184615983.768699848.1629757508-733798040.1613499824) and [here](https://jim-wright90.github.io/hcamp_clusters/).
+I consulted with HCAMP to complete my capstone project in order to obtain the data science specialization from the University of Oregon. Our collaboration focused on retrospectively analyzing ImPACT test scores and PCSS severity ratings. Data products I produced for HCAMP are accessible [here](https://jim-wright90.shinyapps.io/HCAMP_shiny/?_ga=2.184615983.768699848.1629757508-733798040.1613499824) and [here](https://jim-wright90.github.io/hcamp_clusters/).
 
 ## Graduate Student Teaching Experience 
 
