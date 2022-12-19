@@ -95,7 +95,7 @@ cat(header)
 </div>
 
 <div id = "position", class = "position">
-Research Associate at Marzano Research and Clinical Supervisor at the University of Oregon Department of Communication Disorders and Sciences
+Researcher at Marzano Research and Clinical Supervisor at the University of Oregon Department of Communication Disorders and Sciences
 </div>
 
 
@@ -458,6 +458,74 @@ kable(pubs_tbl[1:9, ],
 ```{r} 
 # kable(pubs_tbl[10:nrow(pubs_tbl), ])
 ```
+
+## Professional Reports
+
+```{r}
+reports <- pubs %>% 
+  filter(type == "mzr_report") %>% 
+  select(-type)
+
+fa_doc <- ifelse(
+  !is.na(reports$full_paper_link), 
+  paste0('[<i class="fas falink2 fa-file-alt"></i>](', 
+         confs$full_paper_link, 
+         ")"
+         ),
+  ""
+  )
+
+fa_git <- ifelse(
+  !is.na(reports$git_repo), 
+  paste0('[<i class="fab falink2 fa-github"></i>](', 
+         confs$git_repo, 
+         ")"
+         ),
+  ""
+  )
+
+fa_pres <- ifelse(
+  !is.na(reports$slides_link), 
+  paste0('[<i class="fas falink3 fa-chalkboard-teacher"></i>](', 
+         confs$slides_link, 
+         ")"
+         ),
+  ""
+  )
+
+
+each_cite <- split(reports, seq_len(nrow(reports)))
+empties <- map(each_cite, ~map_lgl(.x, is.na))
+
+cites <- map2(each_cite, empties, ~.x[ ,!.y])
+formatted_cites <- map(cites, ~do.call(make_cite, .x)) 
+
+reports_tbl <- tibble(year = reports$year,
+                   count = paste0(seq(length(formatted_cites), 1), "."),
+                   cites = paste(unlist(formatted_cites), 
+                                 fa_doc, 
+                                 fa_pres, 
+                                 fa_git)
+)
+  
+
+reports_tbl <- reports_tbl %>% 
+  mutate(year = parse_number(year)) %>% 
+  group_by(year) %>%
+  mutate(count_within_year = 1:n()) %>% 
+  ungroup() %>% 
+  mutate(year = ifelse(count_within_year == 1, year, "")) %>% 
+  select(-count_within_year)
+```
+
+<!-- <div class = "hangingindent prpa nohead"> -->
+
+```{r} 
+kable(reports_tbl[1:9, ],
+      col.names = NULL)
+```
+
+
 
 ## Professional Presentations 
 
