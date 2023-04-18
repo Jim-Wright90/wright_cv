@@ -266,6 +266,25 @@ cv_entries %>%
   kable(col.names = NULL)
 ```
 
+## Programming Skills
+
+```{r}
+cv_entries %>% 
+  filter(type == "programming_skill") %>% 
+  mutate(what = paste0("<span style= 'font-weight: 500'>",
+                       what, 
+                       "</span>"),
+    what = paste0(what, ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what)) %>% 
+  mutate(year = str_c(year_begin, 
+                      " --- ", 
+                      ifelse(is.na(year_end), "", year_end))) %>% 
+  select(year, what) %>% 
+  kable(col.names = NULL)
+```
+
+
 # Teaching 
 
 <div class = "inote">
