@@ -154,7 +154,41 @@ cv_entries %>%
   kable()
 ```
 
-A specific example of the work I complete for Marzano Research is the development of a data dashboard for Kamehameha Schools in the State of Hawaii. The dashboard is accessible [here](https://marzanoresearch.shinyapps.io/ks_version4/?_ga=2.111201984.530676107.1666295282-750961707.1634592294). 
+
+## Selected Project Experience
+
+```{r}
+cv_entries %>% 
+  filter(type == 'project') %>% 
+  mutate(what = paste0("<span style= 'font-weight: 500'>",
+                       what, 
+                       "</span>"),
+    what = paste0(what, ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what),
+    what = ifelse(!is.na(url), 
+                       paste0("[", what, "](", url, ")"), 
+                       what)) %>%
+  mutate(year = str_c(year_begin, 
+                      " --- ", 
+                      ifelse(is.na(year_end), "", year_end))) %>% 
+  select(year, what, role, additional_info) %>% 
+  kable(col.names = NULL)
+
+
+# cv_entries %>% 
+#   filter(type == 'education') %>% 
+#   mutate(what = paste0(what, ", ", where),
+#          what = gsub("NA", "", what),
+#          what = gsub(", $", "", what),
+#          what = ifelse(!is.na(url), 
+#                        paste0("[", what, "](", url, ")"), 
+#                        what)
+#          ) %>% 
+#   mutate(year = str_c(year_begin, " --- ", year_end)) %>% 
+#   select(year, what) %>% 
+#   kable()
+```
 
 ## Graduate Student Research Experience 
 
