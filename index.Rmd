@@ -585,7 +585,7 @@ reports_tbl <- reports_tbl %>%
 <!-- <div class = "hangingindent prpa nohead"> -->
 
 ```{r} 
-kable(reports_tbl[1:9, ],
+kable(reports_tbl[1:7, ],
       longtable = FALSE,
       col.names = NULL)
 
@@ -659,7 +659,7 @@ conf_tbl <- conf_tbl %>%
 ```{r}
 kable(conf_tbl[1:7, ],
       longtable = FALSE,
-      col.names = NULL)
+      col.names = NULL) 
 ```
 
 

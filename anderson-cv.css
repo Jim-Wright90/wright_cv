@@ -364,6 +364,7 @@ a:hover {
   vertical-align: top;
   font-size: 0.9em;
   text-align: left;
+  width: 16%;
 }
 
 /* don't make page breaks inside an entry */
@@ -415,3 +416,5 @@ td {
 .prof td:nth-child(2) {
   padding-left: 15px;
 }
+
+
