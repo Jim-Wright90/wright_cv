@@ -68,13 +68,9 @@ cat(header)
       <i class="fas fafooter fa-envelope"> | </i>
   </a>  
   
-   <a href="mailto:jim.wright@marzanoresearch.com" class="icon-block">
+   <a href="mailto:jim@appliedsurveyresearch.org" class="icon-block">
       <i class="fas fafooter fa-envelope"> | </i>
   </a>  
-  
-  <a href="mailto:jwrigh16@uoregon.edu" class="icon-block">
-      <i class="fas fafooter fa-envelope"> | </i>
-  </a> 
   
   <a href="https://www.linkedin.com/in/jim-wright-a944698b/" class="icon-block">
       <i class="fab fafooter fa-linkedin"></i>
@@ -96,7 +92,7 @@ cat(header)
 </div>
 
 <div id = "position", class = "position">
-Researcher at Marzano Research and Clinical Supervisor at the University of Oregon Department of Communication Disorders and Sciences
+Senior Research Analyst at Applied Survey Research
 </div>
 
 
