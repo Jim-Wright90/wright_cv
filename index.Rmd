@@ -523,7 +523,7 @@ kable(pubs_tbl[1:9, ],
 
 ```{r}
 reports <- pubs %>% 
-  filter(type == "mzr_report") %>% 
+  filter(type == "pro_report") %>% 
   select(-type)
 
 fa_doc <- ifelse(
