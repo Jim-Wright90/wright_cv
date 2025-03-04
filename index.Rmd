@@ -92,7 +92,7 @@ cat(header)
 </div>
 
 <div id = "position", class = "position">
-Senior Research Analyst at Applied Survey Research
+Project Manager at Applied Survey Research
 </div>
 
 
