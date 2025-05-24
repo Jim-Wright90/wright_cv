@@ -34,27 +34,29 @@ courses <- readxl::read_xlsx(here::here("data", "courses.xlsx"))
 
 
 ```{r}
-PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
-if(PDF) {
-  header <- '
-  View online
-  <a href="https://jim-wright90.github.io/wright_cv/" class="icon-block">
-      <i class="fas fafooter fa-globe"></i>
-  </a>
-  '
-} else {
-  header <- '
-  Download PDF
-  <a href="https://github.com/jim-wright90/wright_cv/raw/main/index.pdf" class="icon-block">
-      <i class="fas fafooter fa-download"></i>
-  </a>
-  '
-}
+# PDF <- FALSE # Set to TRUE when rendering to PDF via pagedown::chrome_print()
+# if(PDF) {
+#   header <- '
+#   View online
+#   <a href="https://jim-wright90.github.io/wright_cv/" class="icon-block">
+#       <i class="fas fafooter fa-globe"></i>
+#   </a>
+#   '
+# } else {
+#   header <- '
+#   Download PDF
+#   <a href="https://github.com/jim-wright90/wright_cv/raw/main/index.pdf" class="icon-block">
+#       <i class="fas fafooter fa-download"></i>
+#   </a>
+#   '
+# }
+
+
 ```
 
 <div class = "download">
 ```{r results = "asis"}
-cat(header)
+# cat(header)
 ```
 
 </div>
@@ -247,61 +249,61 @@ cv_entries %>%
         col.names = NULL)
 ```
 
-## Professional Affiliations 
+<!-- ## Professional Affiliations  -->
 
 ```{r}
-cv_entries %>% 
-  filter(type == "professional_affiliation") %>% 
-  mutate(what = paste0("<span style= 'font-weight: 500'>",
-                       what, 
-                       "</span>"),
-    what = paste0(what, ", ", where),
-         what = gsub("NA", "", what),
-         what = gsub(", $", "", what)) %>% 
-  mutate(year = str_c(year_begin, 
-                      " --- ", 
-                      ifelse(is.na(year_end), "", year_end))) %>% 
-  select(year, what) %>% 
-  kable(longtable = FALSE,
-        col.names = NULL)
+# cv_entries %>% 
+#   filter(type == "professional_affiliation") %>% 
+#   mutate(what = paste0("<span style= 'font-weight: 500'>",
+#                        what, 
+#                        "</span>"),
+#     what = paste0(what, ", ", where),
+#          what = gsub("NA", "", what),
+#          what = gsub(", $", "", what)) %>% 
+#   mutate(year = str_c(year_begin, 
+#                       " --- ", 
+#                       ifelse(is.na(year_end), "", year_end))) %>% 
+#   select(year, what) %>% 
+#   kable(longtable = FALSE,
+#         col.names = NULL)
 ```
 
-## Certification and Licensure 
+<!-- ## Certification and Licensure  -->
 
 ```{r}
-cv_entries %>% 
-  filter(type == "certification_licensure") %>% 
-  mutate(what = paste0("<span style= 'font-weight: 500'>",
-                       what, 
-                       "</span>"),
-    what = paste0(what, ", ", where),
-         what = gsub("NA", "", what),
-         what = gsub(", $", "", what)) %>% 
-  mutate(year = str_c(year_begin, 
-                      " --- ", 
-                      ifelse(is.na(year_end), "", year_end))) %>% 
-  select(year, what) %>% 
-  kable(longtable = FALSE,
-        col.names = NULL)
+# cv_entries %>% 
+#   filter(type == "certification_licensure") %>% 
+#   mutate(what = paste0("<span style= 'font-weight: 500'>",
+#                        what, 
+#                        "</span>"),
+#     what = paste0(what, ", ", where),
+#          what = gsub("NA", "", what),
+#          what = gsub(", $", "", what)) %>% 
+#   mutate(year = str_c(year_begin, 
+#                       " --- ", 
+#                       ifelse(is.na(year_end), "", year_end))) %>% 
+#   select(year, what) %>% 
+#   kable(longtable = FALSE,
+#         col.names = NULL)
 ```
 
-## Professional Training 
+<!-- ## Professional Training  -->
 
 ```{r}
-cv_entries %>% 
-  filter(type == "professional_training") %>% 
-  mutate(what = paste0("<span style= 'font-weight: 500'>",
-                       what, 
-                       "</span>"),
-    what = paste0(what, ", ", where),
-         what = gsub("NA", "", what),
-         what = gsub(", $", "", what)) %>% 
-  mutate(year = str_c(year_begin, 
-                      " --- ", 
-                      ifelse(is.na(year_end), "", year_end))) %>% 
-  select(year, what) %>% 
-  kable(longtable = FALSE,
-        col.names = NULL)
+# cv_entries %>% 
+#   filter(type == "professional_training") %>% 
+#   mutate(what = paste0("<span style= 'font-weight: 500'>",
+#                        what, 
+#                        "</span>"),
+#     what = paste0(what, ", ", where),
+#          what = gsub("NA", "", what),
+#          what = gsub(", $", "", what)) %>% 
+#   mutate(year = str_c(year_begin, 
+#                       " --- ", 
+#                       ifelse(is.na(year_end), "", year_end))) %>% 
+#   select(year, what) %>% 
+#   kable(longtable = FALSE,
+#         col.names = NULL)
 ```
 
 ## Programming Skills
