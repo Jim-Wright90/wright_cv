@@ -171,9 +171,29 @@ cv_entries %>%
   mutate(year = str_c(year_begin, 
                       " --- ", 
                       ifelse(is.na(year_end), "", year_end))) %>% 
-  select(year, what, role, additional_info) %>% 
+  select(year, what, additional_info) %>% 
   kable(longtable = FALSE,
         col.names = NULL)
+
+
+#12.20.25 previous version 
+# cv_entries %>% 
+#   filter(type == 'project') %>% 
+#   mutate(what = paste0("<span style= 'font-weight: 500'>",
+#                        what, 
+#                        "</span>"),
+#     what = paste0(what, ", ", where),
+#          what = gsub("NA", "", what),
+#          what = gsub(", $", "", what),
+#     what = ifelse(!is.na(url), 
+#                        paste0("[", what, "](", url, ")"), 
+#                        what)) %>%
+#   mutate(year = str_c(year_begin, 
+#                       " --- ", 
+#                       ifelse(is.na(year_end), "", year_end))) %>% 
+#   select(year, what, role, additional_info) %>% 
+#   kable(longtable = FALSE,
+#         col.names = NULL)
 
 
 # cv_entries %>% 
