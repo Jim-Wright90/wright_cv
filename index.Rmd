@@ -190,6 +190,29 @@ cv_entries %>%
 #   kable()
 ```
 
+## Selected Data Visualization Dashboards
+
+```{r}
+cv_entries %>% 
+  filter(type == 'data_viz') %>% 
+  mutate(what = paste0("<span style= 'font-weight: 500'>",
+                       what, 
+                       "</span>"),
+    what = paste0(what, ", ", where),
+         what = gsub("NA", "", what),
+         what = gsub(", $", "", what),
+    what = ifelse(!is.na(url), 
+                       paste0("[", what, "](", url, ")"), 
+                       what)) %>%
+  mutate(year = str_c(year_begin)) %>% 
+  select(year, what, additional_info) %>% 
+  kable(longtable = FALSE,
+        col.names = NULL)
+
+
+
+```
+
 ## Graduate Student Research Experience 
 
 ```{r}
