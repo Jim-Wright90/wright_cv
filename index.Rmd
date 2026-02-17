@@ -94,7 +94,7 @@ courses <- readxl::read_xlsx(here::here("data", "courses.xlsx"))
 </div>
 
 <div id = "position", class = "position">
-Project Manager at Applied Survey Research
+Senior Manager at Applied Survey Research
 </div>
 
 
