@@ -12,6 +12,7 @@ links-to-footnotes: false
 ---
 
 ```{r setup, include=FALSE}
+# install.packages("pagedown")
 library(tidyverse)
 library(lubridate)
 library(knitr)
